@@ -21,7 +21,7 @@ import EmailIcon from '../../../assets/email.svg';
 import SenhaIcon from '../../../assets/senha.svg';
 
 
-export default () => {
+export default ({navigation}) => {
     
     
     const [emailField, setEmailField] = useState('');
@@ -57,7 +57,7 @@ export default () => {
         }
     }
 
-    const handleMessageButtonClick = () => {
+    const handleMessageButtonClick = async () => {
         navigation.reset({
             routes: [{name: 'SignUp'}]
         });
@@ -93,7 +93,8 @@ export default () => {
 
             <SignMessageButton onPress={handleMessageButtonClick}   >
                 <SignMessageButtonText> Ainda não possui uma conta?</SignMessageButtonText>
-                <SignMessageButtonTextBold>Cadastre-se</SignMessageButtonTextBold>
+                <SignMessageButtonTextBold onPress={() => navigation.navigate('SignUp')}
+                >Cadastre-se</SignMessageButtonTextBold>
             </SignMessageButton>
             
 
