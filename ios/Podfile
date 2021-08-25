@@ -14,6 +14,8 @@ target 'ADOGPET' do
 
   pod 'react-native-maps', :path => '../node_modules/react-native-maps'
 
+  pod 'RNFirebase', :path => '../node_modules/react-native-firebase'
+
   target 'ADOGPETTests' do
     inherit! :complete
     # Pods for testing

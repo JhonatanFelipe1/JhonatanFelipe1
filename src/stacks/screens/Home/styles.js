@@ -48,5 +48,11 @@ export const LocationFinder = styled.TouchableOpacity`
     height: 26px;
 
 `;
+export const LoadingIcon = styled.ActivityIndicator`
+    margin-top: 50px;
+`;
 
-
+export const Lista = styled.View`
+    margin-top: 30px;
+    margin-bottom: 30px;
+`;
