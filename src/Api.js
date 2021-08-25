@@ -3,9 +3,8 @@ import axios from 'axios';
 
 const BASE_API = 'https://api.b7web.com.br/devbarber/api';
 const API = axios.create({
-  baseURL: 'http://localhost:3000/'
+  baseURL: 'http://192.168.1.5:3000/',
 });
-
 
 export default {
   checkToken: async token => {
@@ -51,4 +50,11 @@ export default {
     const json = await req.json();
     return json;
   },
+
+  getAnimals: async () => {
+    const response = await API.get('animals');
+    const json = await response.data;
+    return json;
+  },
 };
+  

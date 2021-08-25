@@ -42,6 +42,8 @@ const SeeProfileButtomText = styled.Text`
   color: #ffb637;
 `;
 
+
+
 export default ({data}) => {
   return (
     <Area>

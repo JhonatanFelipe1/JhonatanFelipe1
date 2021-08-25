@@ -48,18 +48,18 @@ export default () => {
 
                 Geolocation.getCurrentPosition((info)=>{
                     setCoords(info.coords);
-                    getBarbers();
+                    getAnimals();
                 });
 
             }
 
     }
  
-    const getBarbers = async () => {
+    const getAnimals = async () => {
         setLoading(true);
         setList([]);
 
-        let res = await Api.getBarbers();
+        let res = await Api.getAnimals();
         console.log(res);
         
         if(res.error == '') {
@@ -74,13 +74,19 @@ export default () => {
         setLoading(false);  
     }
     
+    async function loadAnimals() {
+        const response = await Api.getAnimals();
+
+        setList(response.data);
+    };
+
     useEffect(()=>{
-        getBarbers();
-    }, []);
+        loadAnimals();
+    }, [list]);
 
     const onRefresh = () => {
         setRefreshing(false);
-        getBarbers();
+        getAnimals();
     }
 
     return(
