@@ -59,6 +59,8 @@ export default () => {
         setLoading(true);
         setList([]);
 
+        
+
         let res = await Api.getAnimals();
         console.log(res);
         
@@ -88,6 +90,8 @@ export default () => {
         setRefreshing(false);
         getAnimals();
     }
+
+   
 
     return(
 

@@ -23,7 +23,7 @@ import SenhaIcon from '../../../assets/senha.svg';
 
 export default ({navigation}) => {
     
-    
+    const {dispatch: userDispatch} = useContext(UserContext);
     const [emailField, setEmailField] = useState('');
     const [senhaField, setSenhaField] = useState('');
 
@@ -35,7 +35,7 @@ export default ({navigation}) => {
             if(json.token) {
                await AsyncStorage.setItem('token', json.token);
             
-               userDispach({
+               userDispatch({
                    type: 'setAvatar',
                    payload:{
                        avatar: json.data.avatar
@@ -47,7 +47,7 @@ export default ({navigation}) => {
                });
 
 
-                alert("Concluido com sucesso");
+               
             } else {
                 alert("E-mail e/ou senha incorretos!");
             }

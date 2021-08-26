@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import { useNavigation } from '@react-navigation/native';
 
-import Stars from '../components/Stars';
 
 const Area = styled.TouchableOpacity`
   background-color: #ffffff;
@@ -28,8 +28,8 @@ const UserName = styled.Text`
 `;
 
 const SeeProfileButtom = styled.View`
-  width: 120px;
-  height: 26px;
+  width: 126px;
+  height: 46px;
   border: 1px solid #ffa300;
   border-radius: 10px;
   justify-content: center;
@@ -37,7 +37,7 @@ const SeeProfileButtom = styled.View`
 `;
 
 const SeeProfileButtomText = styled.Text`
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
   color: #ffb637;
 `;
@@ -45,13 +45,22 @@ const SeeProfileButtomText = styled.Text`
 
 
 export default ({data}) => {
+  
+  const navigation = useNavigation();
+
+  const handleClick = () => {
+      navigation.navigate('Pet', {
+        id: data.id,
+        avatar: data.avatar,
+        name: data.name
+      });
+  }
+
   return (
-    <Area>
+    <Area onPress={handleClick} >
       <Avatar source={{uri: data.avatar}} />
       <InfoArea>
         <UserName>{data.name}</UserName>
-
-        <Stars stars={data.stars} showNumber={true} />
 
         <SeeProfileButtom>
           <SeeProfileButtomText>Ver mais detalhes</SeeProfileButtomText>

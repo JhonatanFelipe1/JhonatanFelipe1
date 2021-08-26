@@ -22,7 +22,7 @@ import NomeIcon from '../../../assets/nome.svg';
 
 export default () => {
     
-    const {dispatch: userDispach} = useContext(UserContext);
+    
     const navigation = useNavigation();
     
     const [nomeField, setNomeField] = useState('');

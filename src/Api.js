@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const BASE_API = 'https://api.b7web.com.br/devbarber/api';
 const API = axios.create({
-  baseURL: 'http://192.168.1.5:3000/',
+  baseURL: 'http://192.168.1.2:3000/',
 });
 
 export default {
@@ -43,6 +43,21 @@ export default {
     const json = await req.json();
     return json;
   },
+
+  logout: async () => {
+    const token = await AsyncStorage.getItem('token');
+    const req = await fetch(`${BASE_API}/auth/logout`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({token}),
+    });
+    const json = await req.json();
+    return json;
+  },
+
   getBarbers: async () => {
     const token = await AsyncStorage.getItem('token');
 
@@ -56,5 +71,9 @@ export default {
     const json = await response.data;
     return json;
   },
+  getAnimal: async () => {
+    const response = await API.get('animal');
+    const json = await response.data;
+    return json;
+  },
 };
-  
