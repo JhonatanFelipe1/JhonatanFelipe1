@@ -28,13 +28,12 @@ export const SweipeDotActive = styled.View`
 
 export const SwipeItem = styled.View`
   flex: 1;
-  background-color: #FFA300;
-
+  background-color: #ffa300;
 `;
 
 export const SwipeImage = styled.Image`
-    width: 100%;
-    height: 240px;
+  width: 100%;
+  height: 240px;
 `;
 
 export const FakeSwiper = styled.View``;
@@ -46,3 +45,9 @@ export const UserInfoArea = styled.View``;
 export const ServiceArea = styled.View``;
 
 export const Descrition = styled.View``;
+
+export const Avatar = styled.Image`
+  width: 88px;
+  height: 88px;
+  border-radius: 20px;
+`;

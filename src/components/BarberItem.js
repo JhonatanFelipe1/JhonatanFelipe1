@@ -1,6 +1,11 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { useNavigation } from '@react-navigation/native';
+import { 
+  StyleSheet,
+  Platform,
+} from 'react-native';
+
 
 
 const Area = styled.TouchableOpacity`
@@ -15,6 +20,8 @@ const Avatar = styled.Image`
   width: 88px;
   height: 88px;
   border-radius: 20px;
+  
+  
 `;
 
 const InfoArea = styled.View`
@@ -58,7 +65,7 @@ export default ({data}) => {
 
   return (
     <Area onPress={handleClick} >
-      <Avatar source={{uri: data.avatar}} />
+      <Avatar  source={{uri: data.avatar}} />
       <InfoArea>
         <UserName>{data.name}</UserName>
 

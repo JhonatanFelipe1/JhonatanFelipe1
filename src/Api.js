@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const BASE_API = 'https://api.b7web.com.br/devbarber/api';
 const API = axios.create({
-  baseURL: 'http://192.168.1.2:3000/',
+  baseURL: 'http://192.168.1.8:3000/',
 });
 
 export default {
@@ -71,8 +71,8 @@ export default {
     const json = await response.data;
     return json;
   },
-  getAnimal: async () => {
-    const response = await API.get('animal');
+  getAnimal: async id => {
+    const response = await API.get(`animal/${id}`);
     const json = await response.data;
     return json;
   },
